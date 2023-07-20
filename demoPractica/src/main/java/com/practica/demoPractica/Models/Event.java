@@ -1,31 +1,42 @@
 package com.practica.demoPractica.Models;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import org.springframework.cglib.core.Local;
 
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
 import java.util.Date;
+import java.util.List;
 
 @Entity
-@Table(name = "Event")
+@Table(name = "event")
 public class Event {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "event_id")
     private int eventID;
-    @Column(name="locationid")
-    private int locationID;
-    @Column(name="eventtypeid")
-    private int eventTypeID;
+
+    @ManyToOne
+    @JoinColumn(name="location_id", nullable = false)
+    private Location location;
+
+    @ManyToOne
+    @JoinColumn(name="eventtype_id", nullable = false)
+    private EventType eventType;
     @Column(name="name")
     private String name;
     @Column(name="description")
     private String description;
-    @Column(name="startdate")
+    @Column(name="start_date")
     private Timestamp startDate;
-    @Column(name="enddate")
+    @Column(name="end_date")
     private Timestamp endDate;
+
+    @OneToMany(mappedBy = "event", cascade = CascadeType.ALL)
+    @JsonIgnore
+    private List<TicketCategory> ticketCategories;
 
     public int getEventID() {
         return eventID;
@@ -35,20 +46,20 @@ public class Event {
         this.eventID = eventID;
     }
 
-    public int getLocationID() {
-        return locationID;
+    public Location getLocation() {
+        return location;
     }
 
-    public void setLocationID(int locationID) {
-        this.locationID = locationID;
+    public void setLocation(Location location) {
+        this.location = location;
     }
 
-    public int getEventTypeID() {
-        return eventTypeID;
+    public EventType getEventType() {
+        return eventType;
     }
 
-    public void setEventTypeID(int eventTypeID) {
-        this.eventTypeID = eventTypeID;
+    public void setEventType(EventType eventType) {
+        this.eventType = eventType;
     }
 
     public String getName() {
@@ -67,8 +78,7 @@ public class Event {
         this.description = description;
     }
 
-
-    public Date getStartDate() {
+    public Timestamp getStartDate() {
         return startDate;
     }
 
@@ -84,16 +94,25 @@ public class Event {
         this.endDate = endDate;
     }
 
+    public List<TicketCategory> getTicketCategories() {
+        return ticketCategories;
+    }
+
+    public void setTicketCategories(List<TicketCategory> ticketCategories) {
+        this.ticketCategories = ticketCategories;
+    }
+
     @Override
     public String toString() {
         return "Event{" +
                 "eventID=" + eventID +
-                ", locationID=" + locationID +
-                ", eventTypeID=" + eventTypeID +
+                ", location=" + location +
+                ", eventType=" + eventType +
                 ", name='" + name + '\'' +
                 ", description='" + description + '\'' +
-                ", startDate='" + startDate + '\'' +
-                ", endDate='" + endDate + '\'' +
+                ", startDate=" + startDate +
+                ", endDate=" + endDate +
+                ", ticketCategories=" + ticketCategories +
                 '}';
     }
 
