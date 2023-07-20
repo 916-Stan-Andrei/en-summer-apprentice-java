@@ -3,7 +3,7 @@ package com.practica.demoPractica.Models;
 import jakarta.persistence.*;
 
 import java.math.BigDecimal;
-import java.sql.Timestamp;
+import java.util.Date;
 
 @Entity
 @Table(name = "[order]")
@@ -25,7 +25,7 @@ public class Order {
     private int numberOfTickets;
 
     @Column(name = "ordered_at")
-    private Timestamp orderedAt;
+    private Date orderedAt;
 
     @Column(name="total_price", precision = 10, scale = 2)
     private BigDecimal totalPrice;
@@ -62,11 +62,11 @@ public class Order {
         this.numberOfTickets = numberOfTickets;
     }
 
-    public Timestamp getOrderedAt() {
+    public Date getOrderedAt() {
         return orderedAt;
     }
 
-    public void setOrderedAt(Timestamp orderedAt) {
+    public void setOrderedAt(Date orderedAt) {
         this.orderedAt = orderedAt;
     }
 

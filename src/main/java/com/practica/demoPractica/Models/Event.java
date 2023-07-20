@@ -3,10 +3,7 @@ package com.practica.demoPractica.Models;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
-import org.springframework.cglib.core.Local;
 
-import java.sql.Timestamp;
-import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.List;
 
@@ -30,9 +27,9 @@ public class Event {
     @Column(name="description")
     private String description;
     @Column(name="start_date")
-    private Timestamp startDate;
+    private Date startDate;
     @Column(name="end_date")
-    private Timestamp endDate;
+    private Date endDate;
 
     @OneToMany(mappedBy = "event", cascade = CascadeType.ALL)
     @JsonIgnore
@@ -78,19 +75,19 @@ public class Event {
         this.description = description;
     }
 
-    public Timestamp getStartDate() {
+    public Date getStartDate() {
         return startDate;
     }
 
-    public void setStartDate(Timestamp startDate) {
+    public void setStartDate(Date startDate) {
         this.startDate = startDate;
     }
 
-    public Timestamp getEndDate() {
+    public Date getEndDate() {
         return endDate;
     }
 
-    public void setEndDate(Timestamp endDate) {
+    public void setEndDate(Date endDate) {
         this.endDate = endDate;
     }
 

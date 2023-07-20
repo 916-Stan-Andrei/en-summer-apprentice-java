@@ -1,6 +1,6 @@
 package com.practica.demoPractica.Models;
 
-import java.sql.Timestamp;
+import java.util.Date;
 import java.util.List;
 
 public record EventDTO (
@@ -9,8 +9,8 @@ public record EventDTO (
     String type,
     String description,
     String name,
-    Timestamp startDate,
-    Timestamp endDate,
+    Date startDate,
+    Date endDate,
     List<TicketCategoryDTO> ticketCategories
 ){
 
