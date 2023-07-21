@@ -2,9 +2,9 @@ package com.practica.demoPractica.Models;
 
 import java.math.BigDecimal;
 
-public record TicketCategoryDTO(
+public record OrderRequestDTO(
+        int eventID,
         int ticketCategoryID,
-        String description,
-        BigDecimal price
+        int numberOfTickets
 ) {
 }

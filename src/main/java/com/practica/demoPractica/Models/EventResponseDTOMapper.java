@@ -8,18 +8,18 @@ import java.util.function.Function;
 import java.util.stream.Collectors;
 
 @Service
-public class EventDTOMapper implements Function<Event, EventDTO> {
+public class EventResponseDTOMapper implements Function<Event, EventResponseDTO> {
     @Autowired
-    TicketCategoryDTOMapper ticketCategoryDTOMapper;
+    TicketCategoryResponseDTOMapper ticketCategoryDTOMapper;
 
     @Override
-    public EventDTO apply(Event event) {
-        List<TicketCategoryDTO> ticketCategoryDTOs = event.getTicketCategories()
+    public EventResponseDTO apply(Event event) {
+        List<TicketCategoryResponseDTO> ticketCategoryDTOs = event.getTicketCategories()
                 .stream()
                 .map(ticketCategoryDTOMapper)
                 .collect(Collectors.toList());
 
-        return new EventDTO(
+        return new EventResponseDTO(
                 event.getEventID(),
                 event.getLocation(),
                 event.getEventType().getName(),

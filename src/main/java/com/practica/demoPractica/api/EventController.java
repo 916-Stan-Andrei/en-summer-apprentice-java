@@ -1,7 +1,7 @@
 package com.practica.demoPractica.api;
 
 import com.practica.demoPractica.Models.Event;
-import com.practica.demoPractica.Models.EventDTO;
+import com.practica.demoPractica.Models.EventResponseDTO;
 import com.practica.demoPractica.Service.EventService;
 import org.springframework.web.bind.annotation.*;
 
@@ -22,8 +22,8 @@ public class EventController {
     public Event getEvent(@PathVariable int id){return eventService.getEventByID(id);}
 
     @GetMapping("/events")
-    public List<EventDTO> getEventsByLocationIDAndEventType(@RequestParam(name = "locId") int locationID,
-            @RequestParam(name = "eventType") String eventType){
+    public List<EventResponseDTO> getEventsByLocationIDAndEventType(@RequestParam(name = "locId") int locationID,
+                                                                    @RequestParam(name = "eventType") String eventType){
         return eventService.getAllEventsByLocationIDAndEventType(locationID, eventType);
     }
 

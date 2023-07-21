@@ -54,6 +54,16 @@ public class TicketCategory {
         this.price = price;
     }
 
+    @Override
+    public String toString() {
+        return "TicketCategory{" +
+                "ticketCategoryID=" + ticketCategoryID +
+                ", event=" + event +
+                ", description='" + description + '\'' +
+                ", price=" + price +
+                '}';
+    }
+
     public TicketCategory() {
     }
 }

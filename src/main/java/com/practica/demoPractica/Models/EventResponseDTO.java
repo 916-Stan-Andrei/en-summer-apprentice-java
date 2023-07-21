@@ -3,7 +3,7 @@ package com.practica.demoPractica.Models;
 import java.util.Date;
 import java.util.List;
 
-public record EventDTO (
+public record EventResponseDTO(
     int eventID,
     Location location,
     String type,
@@ -11,7 +11,7 @@ public record EventDTO (
     String name,
     Date startDate,
     Date endDate,
-    List<TicketCategoryDTO> ticketCategories
+    List<TicketCategoryResponseDTO> ticketCategories
 ){
 
 }

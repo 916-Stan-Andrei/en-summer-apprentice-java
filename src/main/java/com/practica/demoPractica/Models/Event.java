@@ -109,7 +109,7 @@ public class Event {
                 ", description='" + description + '\'' +
                 ", startDate=" + startDate +
                 ", endDate=" + endDate +
-                ", ticketCategories=" + ticketCategories +
+          //      ", ticketCategories=" + ticketCategories +
                 '}';
     }
 

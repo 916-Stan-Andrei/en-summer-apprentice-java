@@ -1,10 +1,11 @@
 package com.practica.demoPractica.api;
 
 import com.practica.demoPractica.Models.Order;
+import com.practica.demoPractica.Models.OrderRequestDTO;
+import com.practica.demoPractica.Models.OrderResponseDTO;
 import com.practica.demoPractica.Service.OrderService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -21,5 +22,8 @@ public class OrderController {
     public Order getOrder(@PathVariable int id){return orderService.getOrderByID(id);}
 
     @GetMapping("/orders")
-    public List<Order> getOrders(){return orderService.getOrders();}
+    public List<OrderResponseDTO> getOrders(){return orderService.getOrders();}
+
+    @PostMapping("/addorder")
+    public OrderResponseDTO save(@RequestBody OrderRequestDTO orderRequestDTO){return orderService.saveOrder(orderRequestDTO);}
 }
