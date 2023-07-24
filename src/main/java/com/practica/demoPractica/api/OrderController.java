@@ -11,19 +11,15 @@ import java.util.List;
 
 @RestController
 public class OrderController {
+    @Autowired
+    private OrderService orderService;
 
-    private final OrderService orderService;
-
-    public OrderController(OrderService orderService) {
-        this.orderService = orderService;
-    }
-
-    @GetMapping("/order/{id}")
+    @GetMapping("order/{id}")
     public Order getOrder(@PathVariable int id){return orderService.getOrderByID(id);}
 
     @GetMapping("/orders")
     public List<OrderResponseDTO> getOrders(){return orderService.getOrders();}
 
-    @PostMapping("/addorder")
+    @PostMapping("/orders")
     public OrderResponseDTO save(@RequestBody OrderRequestDTO orderRequestDTO){return orderService.saveOrder(orderRequestDTO);}
 }

@@ -66,4 +66,11 @@ public class TicketCategory {
 
     public TicketCategory() {
     }
+
+    public TicketCategory(int ticketCategoryID, Event event, String description, BigDecimal price) {
+        this.ticketCategoryID = ticketCategoryID;
+        this.event = event;
+        this.description = description;
+        this.price = price;
+    }
 }

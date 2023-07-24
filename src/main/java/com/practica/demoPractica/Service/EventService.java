@@ -16,7 +16,7 @@ public class EventService {
     @Autowired
     private EventRepository eventRepository;
     @Autowired
-    private EventResponseDTOMapper eventDTOMapper;
+    private EventResponseDTOMapper eventResponseDTOMapper;
 
     public Event getEventByID(int eventID){ return eventRepository.findById(eventID).orElse(null);}
 
@@ -29,7 +29,7 @@ public class EventService {
         List<EventResponseDTO> eventResponseDTOList = events.stream()
                 .filter(event -> event.getLocation().getLocationID() == locationID &&
                         Objects.equals(event.getEventType().getName(), eventType))
-                .map(eventDTOMapper)
+                .map(eventResponseDTOMapper)
                 .collect(Collectors.toList());
         if (eventResponseDTOList.isEmpty())
             throw new IllegalArgumentException("No events found for the given location and event type!");

@@ -60,4 +60,11 @@ public class Location {
 
     public Location() {
     }
+
+    public Location(int locationID, String name, String type, int capacity) {
+        this.locationID = locationID;
+        this.name = name;
+        this.type = type;
+        this.capacity = capacity;
+    }
 }

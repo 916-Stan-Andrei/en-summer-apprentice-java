@@ -80,4 +80,13 @@ public class Order {
 
     public Order() {
     }
+
+    public Order(int orderID, Customer customer, TicketCategory ticketCategory, int numberOfTickets, Date orderedAt, BigDecimal totalPrice) {
+        this.orderID = orderID;
+        this.customer = customer;
+        this.ticketCategory = ticketCategory;
+        this.numberOfTickets = numberOfTickets;
+        this.orderedAt = orderedAt;
+        this.totalPrice = totalPrice;
+    }
 }

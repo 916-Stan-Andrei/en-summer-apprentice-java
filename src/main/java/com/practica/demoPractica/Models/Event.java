@@ -115,4 +115,15 @@ public class Event {
 
     public Event() {
     }
+
+    public Event(int eventID, Location location, EventType eventType, String name, String description, Date startDate, Date endDate, List<TicketCategory> ticketCategories) {
+        this.eventID = eventID;
+        this.location = location;
+        this.eventType = eventType;
+        this.name = name;
+        this.description = description;
+        this.startDate = startDate;
+        this.endDate = endDate;
+        this.ticketCategories = ticketCategories;
+    }
 }

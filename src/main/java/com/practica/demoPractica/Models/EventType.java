@@ -38,4 +38,9 @@ public class EventType {
 
     public EventType() {
     }
+
+    public EventType(int eventTypeID, String name) {
+        this.eventTypeID = eventTypeID;
+        this.name = name;
+    }
 }

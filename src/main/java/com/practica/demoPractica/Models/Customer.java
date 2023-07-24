@@ -51,4 +51,10 @@ public class Customer {
 
     public Customer() {
     }
+
+    public Customer(int customerID, String email, String name) {
+        this.customerID = customerID;
+        this.email = email;
+        this.name = name;
+    }
 }

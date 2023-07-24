@@ -5,8 +5,6 @@ import com.practica.demoPractica.Repository.CustomerRepository;
 import com.practica.demoPractica.Repository.OrderRepository;
 import com.practica.demoPractica.Repository.TicketCategoryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
